@@ -121,12 +121,37 @@ $or => Joins query clauses with a logical OR returns all documents that match th
 
 */
 
+/*
 const getDocument = async () => {
 	try {
 		// the below is for or operator
 		// const result = await Playlist.find({ $or: [ { courseType: 'Back End' }, { author: 'Jayesh Chauhan' } ] });
 		// the below is for and operator
 		const result = await Playlist.find({ $and: [ { courseType: 'Back End' }, { author: 'Jayesh Chauhan' } ] });
+
+		console.log(result);
+	} catch (error) {
+		console.log(error);
+	}
+};
+
+getDocument();
+
+
+*/
+
+// ====================================================================== No. 9
+
+// mongodb sorting and count query
+
+const getDocument = async () => {
+	try {
+		// this is for count documents
+		// const result = await Playlist.find({ author: 'Jayesh Chauhan' }).select({ name: 1 }).countDocuments();
+		// this is for sorting the data in assending order
+		// const result = await Playlist.find({ author: 'Jayesh Chauhan' }).select({ name: 1 }).sort({ name: 1 });
+		// this is for sorting the data in decending order
+		const result = await Playlist.find({ author: 'Jayesh Chauhan' }).select({ name: 1 }).sort({ name: -1 });
 
 		console.log(result);
 	} catch (error) {

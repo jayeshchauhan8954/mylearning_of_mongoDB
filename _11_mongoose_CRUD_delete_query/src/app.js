@@ -121,6 +121,7 @@ $or => Joins query clauses with a logical OR returns all documents that match th
 
 */
 
+/*
 const getDocument = async () => {
 	try {
 		// the below is for or operator
@@ -135,3 +136,76 @@ const getDocument = async () => {
 };
 
 getDocument();
+
+
+*/
+
+// ====================================================================== No. 9
+
+// mongodb sorting and count query
+
+/*
+
+const getDocument = async () => {
+	try {
+		// this is for count documents
+		// const result = await Playlist.find({ author: 'Jayesh Chauhan' }).select({ name: 1 }).countDocuments();
+		// this is for sorting the data in assending order
+		// const result = await Playlist.find({ author: 'Jayesh Chauhan' }).select({ name: 1 }).sort({ name: 1 });
+		// this is for sorting the data in decending order
+		const result = await Playlist.find({ author: 'Jayesh Chauhan' }).select({ name: 1 }).sort({ name: -1 });
+
+		console.log(result);
+	} catch (error) {
+		console.log(error);
+	}
+};
+
+getDocument();
+*/
+
+// ====================================================================== No. 10
+
+// update the documents
+/*
+
+const updateDocument = async (id, updates) => {
+	try {
+		// the below is only to update values
+		// const result = await Playlist.updateOne({ _id: id }, { $set: updates });
+
+		// the below is to update and show previous
+		// const result = await Playlist.findOneAndUpdate({ _id: id }, { $set: updates });
+
+		// the below is to update and show updated
+		const result = await Playlist.findOneAndUpdate({ _id: id }, { $set: updates }, { new: true });
+
+		console.log(result);
+	} catch (error) {
+		console.log(error);
+	}
+};
+
+updateDocument('6448cc2054ce3c5c07067208', { name: 'MongoDB' });
+
+*/
+
+// ====================================================================== No. 11
+
+// delete the documents
+
+const deleteDocument = async (id) => {
+	try {
+		// the below is only to delete document
+		// const result = await Playlist.deleteOne({ _id: id });
+
+		// the below is to delete and show deleted document
+		const result = await Playlist.findOneAndDelete({ _id: id });
+
+		console.log(result);
+	} catch (error) {
+		console.log(error);
+	}
+};
+
+deleteDocument('6448cc2054ce3c5c07067207');
